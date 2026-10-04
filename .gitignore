@@ -5,13 +5,19 @@ node_modules/
 dist/
 dist-ssr/
 
-# Environment variables — never commit Phyllo credentials or any secrets
+# Local secrets
 .env
-.env.local
-.env.*.local
 
-# Generated at build time by scripts/fetch-phyllo-stats.mjs
+# Optional editorial statistics output — don't commit
 src/data/stats.json
+
+# Test output
+coverage/
+playwright-report/
+test-results/
+
+# Quarterly, generated from Dom's CSV export — DO commit this one
+# src/data/demographics.json
 
 # Editor / IDE
 .vscode/*

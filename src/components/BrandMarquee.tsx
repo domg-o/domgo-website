@@ -1,42 +1,11 @@
-import React from 'react';
-
 const brands = [
-    'UNIDAYS', 'CURRYS', 'ACER', 'TACO BELL', 'DAIU COVENTRY', 'FINAL ROUND AI', 'RYMAN', 'C4 ENERGY'
-];
+  ['UNiDAYS', 'unidays.com'], ['RAINS', 'rains.com'], ['Taco Bell', 'tacobell.co.uk'], ['Currys', 'currys.co.uk'], ['acer', 'acer.com'], ['Final Round AI', 'finalroundai.com'], ['Daiu Coventry', 'daiucoventry.com'], ['RYMAN', 'ryman.co.uk'], ['C4 ENERGY', 'c4energy.com'], ['Channel 4', 'channel4.com'], ['Newsweek', 'newsweek.com'], ['Make It Common', 'makeitcommon.com'],
+] as const;
+
+function BrandMarks({ hidden = false }: { hidden?: boolean }) {
+  return <div aria-hidden={hidden || undefined} className="brand-track">{brands.map(([name, domain]) => <div className="brand-mark" key={`${name}-${hidden ? 'copy' : 'original'}`}><img src={`https://www.google.com/s2/favicons?domain=${domain}&sz=128`} alt="" /><span>{name}</span></div>)}</div>;
+}
 
 export default function BrandMarquee() {
-    return (
-        <section 
-        aria-label="Brands I have worked with" 
-        className="bg-ink py-3 text-paper overflow-hidden"
-        >
-        <div className="flex w-fit group">
-            
-            {/* Track 1: Original */}
-            <div className="flex min-w-full shrink-0 animate-[marquee_25s_linear_infinite] items-center justify-around group-hover:[animation-play-state:paused]">
-            {brands.map((brand) => (
-                <React.Fragment key={brand}>
-                <span className="mx-4 font-display text-sm font-extrabold uppercase tracking-wide sm:mx-6 sm:text-base">
-                    {brand}
-                </span>
-                <span aria-hidden="true" className="font-mono text-paper/70">-</span>
-                </React.Fragment>
-            ))}
-            </div>
-
-            {/* Track 2: Duplicate (Required for the seamless loop) */}
-            <div aria-hidden="true" className="flex min-w-full shrink-0 animate-[marquee_25s_linear_infinite] items-center justify-around group-hover:[animation-play-state:paused]">
-            {brands.map((brand) => (
-                <React.Fragment key={`${brand}-dup`}>
-                <span className="mx-4 font-display text-sm font-extrabold uppercase tracking-wide sm:mx-6 sm:text-base">
-                    {brand}
-                </span>
-                <span aria-hidden="true" className="font-mono text-paper/70">-</span>
-                </React.Fragment>
-            ))}
-            </div>
-
-        </div>
-        </section>
-    );
+  return <section aria-label="Selected partners" className="logo-rail"><p>Selected partners</p><div className="logo-window"><BrandMarks /><BrandMarks hidden /></div></section>;
 }

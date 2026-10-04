@@ -1,20 +1,29 @@
-import Nav from './components/Nav';
-import Hero from './components/Hero';
-import About from './components/About';
-import Community from './components/Community';
-import Stats from './components/Stats';
-import Work from './components/Work';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import BrandMarquee from './components/BrandMarquee';
+import { useState } from 'react';
+import Analytics from './components/Analytics';
+import PrivacyPreferences, { getSavedAnalyticsPreference, saveAnalyticsPreference } from './components/PrivacyPreferences';
+import Portfolio from './components/portfolio/Portfolio';
 
 export default function App() {
+  const [analyticsPreference, setAnalyticsPreference] = useState(getSavedAnalyticsPreference);
+  const [privacyOpen, setPrivacyOpen] = useState(analyticsPreference === null);
+
+  const chooseAnalytics = (allowed: boolean) => {
+    const nextPreference = allowed ? 'granted' : 'denied';
+    saveAnalyticsPreference(nextPreference);
+    setAnalyticsPreference(nextPreference);
+    setPrivacyOpen(false);
+  };
+
   return (
-    <div className="min-h-screen overflow-x-hidden bg-paper text-ink">
-      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-ink focus:px-4 focus:py-2 focus:font-mono focus:text-paper">Skip to content</a>
-      <Nav />
-      <main id="main"><Hero /><BrandMarquee /><About /><Community /><Stats /><Work /><Contact /></main>
-      <Footer />
-    </div>
+    <>
+      <Analytics enabled={analyticsPreference === 'granted'} />
+      <Portfolio onOpenPrivacy={() => setPrivacyOpen(true)} />
+      <PrivacyPreferences
+        currentPreference={analyticsPreference}
+        open={privacyOpen}
+        onChoose={chooseAnalytics}
+        onClose={() => setPrivacyOpen(false)}
+      />
+    </>
   );
 }
