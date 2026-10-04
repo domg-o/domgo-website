@@ -26,12 +26,7 @@ jobs:
           cache: npm
 
       - run: npm ci
-      - run: npm run build
-        env:
-          PHYLLO_CLIENT_ID: ${{ secrets.PHYLLO_CLIENT_ID }}
-          PHYLLO_CLIENT_SECRET: ${{ secrets.PHYLLO_CLIENT_SECRET }}
-          PHYLLO_TIKTOK_ACCOUNT_ID: ${{ secrets.PHYLLO_TIKTOK_ACCOUNT_ID }}
-          PHYLLO_IG_ACCOUNT_ID: ${{ secrets.PHYLLO_IG_ACCOUNT_ID }}
+      - run: npm run check
 
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -1,16 +1,16 @@
 const eras = [
-  { title: 'The student ', accent: 'text-biro', status: 'The foundation', items: ['Relatable, everyday uni-life videos', 'Internship stories and behind-the-scenes', 'Student discounts and deals, incl. repeat Unidays work', 'Budget challenges and cheapest-vs-most-expensive formats'] },
-  { title: 'The graduate ', accent: 'text-biro-soft', status: 'Now building', items: ['Going to work for the first time: new routine, new nerves', 'Trying new hobbies now there’s time (and money) for them', 'Budgeting on a first salary, and what actually changes', 'The same honesty, now with real money on the line'] },
+  { title: 'The student ', accent: 'text-biro', status: 'The foundation', items: ['Relatable, everyday uni-life videos', 'Internship stories and behind-the-scenes', 'Student discounts and deals, incl. repeat Unidays work', 'Proof: repeat student-brand work built on a community that stays engaged'] },
+  { title: 'The graduate ', accent: 'text-biro-soft', status: 'The next chapter', items: ['Going to work for the first time: new routine, new nerves', 'Budgeting on a first salary, and what actually changes', 'New hobbies, new independence, same honest perspective', 'Proof: job-rejection story reached 3.6M views and earned Newsweek coverage'] },
 ] as const;
 export default function Community() {
   return <section id="community"
-    className="scroll-mt-20 pb-16 sm:pb-24">
-    <div className="mx-auto max-w-7xl px-5 sm:px-8">
+    className="scroll-mt-20 bg-ink/[.035] pt-24 pb-16 sm:pt-32 sm:pb-24">
+    <div className="reveal mx-auto max-w-7xl px-5 sm:px-8">
       <div className="max-w-2xl">
         <p className="font-mono text-xs font-bold uppercase tracking-[.16em] text-biro">
           The community
         </p>
-        <h2 className="mt-3 font-display text-3xl font-extrabold tracking-[-.06em] sm:text-4xl">
+        <h2 className="mt-3 font-display text-4xl font-extrabold leading-[1.02] tracking-[-.045em] sm:text-5xl">
           One audience, two eras.
         </h2>
         <p className="mt-4 text-ink-soft">
@@ -22,7 +22,7 @@ export default function Community() {
           <span className={`rounded-full px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wider ${i ? 'bg-biro-soft/20 text-biro-soft' : 'bg-biro/10 text-biro'}`}>
             {era.status}
           </span>
-          <h3 className="mt-5 font-display text-2xl font-extrabold tracking-[-.06em]">
+          <h3 className="mt-5 font-display text-3xl leading-none tracking-[-.04em]">
             {era.title}
             <span className={era.accent}>
               era
@@ -36,7 +36,7 @@ export default function Community() {
         <strong className="text-biro">
           Why this matters for brands:
         </strong>
-        the audience stayed for the personality, not just the deals. That makes this a natural fit for finance, fashion, tech, food &amp; drink and career brands.
+        the audience stayed for the personality, not just the deals. Best fit: student finance, early-career tech and food &amp; drink brands — where a useful, human take beats a hard sell.
       </p>
     </div>
   </section>;

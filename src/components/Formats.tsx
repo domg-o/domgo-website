@@ -1,0 +1,9 @@
+const formats = [
+  { number: '01', title: 'Make a campaign feel native', copy: 'UGC and social-first partnerships that feel like content people would watch anyway.', cta: 'See campaign work', href: '#work' },
+  { number: '02', title: 'Hand over the mic', copy: 'Account takeovers, event coverage and behind-the-scenes content with a personality already built in.', cta: 'Start a brief', href: '#contact' },
+  { number: '03', title: 'Talk to the next generation', copy: 'Student life, early careers and first-adult-money content for a community living the transition.', cta: 'Meet the audience', href: '#audience' },
+] as const;
+
+export default function Formats() {
+  return <section id="formats" className="scroll-mt-20 py-20 sm:py-28"><div className="reveal mx-auto max-w-7xl px-5 sm:px-8"><div className="max-w-2xl"><p className="font-mono text-xs font-bold uppercase tracking-[.18em] text-biro">How can Dom help?</p><h2 className="mt-3 font-display text-4xl leading-[1.03] tracking-[-.065em] sm:text-5xl">Content with a place to land.</h2><p className="mt-5 leading-7 text-ink-soft">The best work has an actual job to do. These are the formats Dom brings to the table.</p></div><div className="mt-10 grid border-y-2 border-ink md:grid-cols-3 md:divide-x-2 md:divide-ink">{formats.map(format => <article key={format.number} className="group p-6 transition hover:bg-biro hover:text-white sm:p-8"><span className="font-mono text-[10px] font-bold tracking-[.18em] text-biro group-hover:text-biro-soft">{format.number}</span><h3 className="mt-8 font-display text-2xl leading-[1.05] tracking-[-.06em]">{format.title}</h3><p className="mt-4 min-h-20 text-sm leading-6 text-ink-soft group-hover:text-white/75">{format.copy}</p><a href={format.href} className="mt-8 inline-block border-b-2 border-ink pb-1 font-mono text-[10px] font-bold uppercase tracking-wider group-hover:border-white">{format.cta} ↗</a></article>)}</div></div></section>;
+}
