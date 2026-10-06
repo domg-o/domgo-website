@@ -2,10 +2,13 @@ import { useEffect } from 'react';
 import Header from './Header';
 import CampaignWork from './CampaignWork';
 import Contact from './Contact';
+import Testimonials from './Testimonials';
+import Hobbies from './Hobbies';
+import YouTube from './YouTube';
 import { Hero, Partners, CreatorStory, Services, Audience, Footer } from './StaticSections';
 
 type PortfolioProps = {
-  onOpenPrivacy: () => void;
+  onOpenPrivacy?: () => void;
 };
 
 export default function Portfolio({ onOpenPrivacy }: PortfolioProps) {
@@ -27,7 +30,10 @@ export default function Portfolio({ onOpenPrivacy }: PortfolioProps) {
         <div id="top"><Hero /></div>
         <Partners />
         <CampaignWork />
+        <Testimonials />
         <div id="about"><CreatorStory /></div>
+        <Hobbies />
+        <YouTube />
         <div id="formats"><Services /></div>
         <Audience />
         <Contact />

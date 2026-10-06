@@ -11,7 +11,8 @@ describe('Contact', () => {
 
     await user.click(screen.getByRole('button', { name: 'Copy email address' }));
 
-    expect(writeText).toHaveBeenCalledWith('dominicgoofficial@gmail.com');
+    expect(writeText).toHaveBeenCalledWith('dom@domgo.co.uk');
+    expect(screen.getByRole('link', { name: /Email Dom/ })).toHaveAttribute('href', 'mailto:dom@domgo.co.uk?subject=Let%27s%20work%20together');
     expect(screen.getByRole('status')).toHaveTextContent('Email address copied.');
   });
 
@@ -26,6 +27,6 @@ describe('Contact', () => {
     await user.click(screen.getByRole('button', { name: 'Copy email address' }));
 
     expect(screen.getByRole('status')).toHaveTextContent('Select the email address below');
-    expect(screen.getByRole('link', { name: 'dominicgoofficial@gmail.com' })).toHaveAttribute('href', 'mailto:dominicgoofficial@gmail.com');
+    expect(screen.getByRole('link', { name: 'dom@domgo.co.uk' })).toHaveAttribute('href', 'mailto:dom@domgo.co.uk');
   });
 });

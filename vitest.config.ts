@@ -17,6 +17,11 @@ export default defineConfig({
         'src/components/portfolio/CampaignWork.tsx',
         'src/components/portfolio/Contact.tsx',
         'src/components/portfolio/Header.tsx',
+        'src/components/portfolio/Hobbies.tsx',
+        'src/components/portfolio/Testimonials.tsx',
+        'src/components/portfolio/YouTube.tsx',
+        'src/components/portfolio/AudienceDetails.tsx',
+        'src/components/portfolio/content.ts',
       ],
       thresholds: {
         lines: 80,

@@ -20,6 +20,6 @@ describe('PrivacyPreferences', () => {
 
   test('is absent when closed', () => {
     render(<PrivacyPreferences currentPreference="denied" open={false} onChoose={vi.fn()} onClose={vi.fn()} />);
-    expect(screen.queryByRole('heading', { name: /small note about analytics/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole('heading', { name: 'Your privacy choices' })).not.toBeInTheDocument();
   });
 });

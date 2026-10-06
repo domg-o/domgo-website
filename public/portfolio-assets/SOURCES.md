@@ -16,3 +16,5 @@ These are the assets used in the approved local design preview, now included in 
 - Make It Common remains a text label pending an original logo.
 
 The portfolio uses a monochrome display treatment. Existing creator photos remain in `/public/images`.
+
+- YouTube buffet poster: https://i.ytimg.com/vi/FTV8gAQ1dLM/hq720.jpg, saved locally on 5 October 2026 so the placeholder does not contact YouTube. This is the video's public thumbnail, not a new illustration.

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const email = 'dominicgoofficial@gmail.com';
+const email = 'dom@domgo.co.uk';
 
 export default function Contact() {
   const [feedback, setFeedback] = useState('');
@@ -25,7 +25,7 @@ export default function Contact() {
         <div>
           <span className="status">Open to Work</span>
           <h2>Your brief.<br />My next assignment.</h2>
-          <p>For brand partnerships, UGC, takeovers or a conversation about representation. Send the brief. I’ll bring the point of view.</p>
+          <p>Got a brand brief? Send it over. Partnerships, UGC, takeovers—or a conversation about representation. I reply fastest by email.</p>
           <div className="contact-actions">
             <a className="button" href={`mailto:${email}?subject=Let%27s%20work%20together`}>Email Dom <span className="arrow" aria-hidden="true">↗</span></a>
             <button className="copy-email" type="button" disabled={copying} onClick={copyEmail}>{copying ? 'Copying…' : 'Copy email address'}</button>

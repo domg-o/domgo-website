@@ -41,7 +41,7 @@ export default function PrivacyPreferences({ currentPreference, open, onChoose, 
     <aside className="privacy-panel" aria-labelledby="privacy-title">
       <div className="privacy-panel-inner">
         <span className="mono eyebrow">Privacy choices</span>
-        <h2 id="privacy-title" ref={headingRef} tabIndex={-1}>A small note about analytics.</h2>
+        <h2 id="privacy-title" ref={headingRef} tabIndex={-1}>Your privacy choices</h2>
         <p>
           This portfolio uses necessary browser storage to remember your choice. Optional Google Analytics only loads if you allow it, helping Dom understand aggregate visits and which pages are useful.
         </p>

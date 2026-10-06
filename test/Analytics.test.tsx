@@ -1,7 +1,13 @@
 import { render } from '@testing-library/react';
-import Analytics from '../src/components/Analytics';
+import Analytics, { isValidMeasurementId } from '../src/components/Analytics';
 
 describe('Analytics', () => {
+  test('accepts only GA4 web-stream measurement IDs', () => {
+    expect(isValidMeasurementId('G-TEST123')).toBe(true);
+    expect(isValidMeasurementId('UA-123')).toBe(false);
+    expect(isValidMeasurementId(undefined)).toBe(false);
+  });
+
   test('does not load without permission or with an invalid measurement ID', () => {
     const { rerender } = render(<Analytics enabled={false} measurementId="G-TEST123" />);
     expect(document.querySelector('script[data-analytics="domgo"]')).not.toBeInTheDocument();

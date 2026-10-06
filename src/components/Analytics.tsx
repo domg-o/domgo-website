@@ -5,6 +5,10 @@ type AnalyticsProps = {
   measurementId?: string;
 };
 
+export function isValidMeasurementId(measurementId: string | undefined): measurementId is string {
+  return Boolean(measurementId && /^G-[A-Z0-9]+$/i.test(measurementId));
+}
+
 declare global {
   interface Window {
     dataLayer?: unknown[][];
@@ -17,7 +21,7 @@ declare global {
  */
 export default function Analytics({ enabled, measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID }: AnalyticsProps) {
   useEffect(() => {
-    if (!enabled || !measurementId || !/^G-[A-Z0-9]+$/i.test(measurementId)) return;
+    if (!enabled || !isValidMeasurementId(measurementId)) return;
 
     const library = document.createElement('script');
     library.async = true;

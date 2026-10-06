@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-const links = [['The work', '#work'], ['The story', '#story'], ['The audience', '#audience']] as const;
+const links = [['The work', '#work'], ['The series', '#hobbies'], ['The story', '#story'], ['The audience', '#audience']] as const;
 
 export default function Header() {
   const menuRef = useRef<HTMLDetailsElement>(null);
