@@ -27,7 +27,6 @@ export default function YouTube() {
           <a className="video-external" href={featuredVideo.url} target="_blank" rel="noopener noreferrer">Watch on YouTube <ExternalArrow /></a>
         </div>
       </div>
-      <p className="content-note" id="video-privacy">Loading this video connects to YouTube/Google, which may process device information and use storage.</p>
     </div>
   </section>;
 }

@@ -5,7 +5,7 @@ type Project = { brand: string; type: string; result: string; detail: string; im
 const projects: Project[] = [
   { brand: 'Rains', type: 'UGC + organic · TikTok', result: '11M views', detail: 'Three videos for the Danish rainwear brand. Useful, quick and very wet.', image: '/images/dom-10.jpg', href: 'https://vm.tiktok.com/ZNRouE8Dr/' },
   { brand: 'Unidays', type: 'Repeat partnership · IG + TikTok', result: '2.4M views', detail: 'Six posts, made for the people who check their bank balance before brunch.', image: '/images/dom-09.jpg', href: 'https://www.instagram.com/reel/DHnkUKGMDAM/' },
-  { brand: 'Daiu Coventry', type: 'Organic local feature · IG + TikTok', result: '1.9M views', detail: 'A Coventry spotlight that travelled far beyond Coventry.', image: '/images/dom-11.jpg', href: 'https://www.tiktok.com/@domg.o/video/7644886849533512982' },
+  { brand: 'DAIU Coventry', type: 'Organic local feature · IG + TikTok', result: '1.9M views', detail: 'A Coventry spotlight that travelled far beyond Coventry.', image: '/images/dom-11.jpg', href: 'https://www.tiktok.com/@domg.o/video/7644886849533512982' },
   { brand: 'Final Round AI', type: 'Sponsored video · TikTok', result: '190K views', detail: 'Career-tech content that did not make career-tech feel like homework.', image: '/images/dom-13.jpg', href: 'https://www.tiktok.com/@domg.o' },
   { brand: 'Taco Bell UK', type: 'Account takeover · TikTok', result: '160K views · 16K likes', detail: 'Behind the scenes, store visits and staff content for Taco Bell UK.', image: '/images/dom-12.jpg', href: 'https://www.tiktok.com/@tacobell_uki/video/7374066747470564641' },
 ];

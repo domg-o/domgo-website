@@ -40,12 +40,11 @@ describe('Visitor-facing portfolio copy', () => {
     expect(screen.queryAllByText(internalNotes)).toEqual([]);
   });
 
-  test('retains clear analytics choices and the video privacy disclosure', () => {
+  test('retains clear analytics choices while leaving the player unloaded by default', () => {
     render(<><Portfolio /><PrivacyPreferences currentPreference={null} open onChoose={vi.fn()} onClose={vi.fn()} /></>);
     expect(screen.getByRole('heading', { name: 'Your privacy choices' })).toBeVisible();
     expect(screen.getByRole('button', { name: 'Use necessary only' })).toBeVisible();
     expect(screen.getByRole('button', { name: 'Allow analytics' })).toBeVisible();
-    expect(screen.getByText('Loading this video connects to YouTube/Google, which may process device information and use storage.')).toBeVisible();
     expect(screen.queryByTitle('Can I profit from an all-you-can-eat buffet?')).not.toBeInTheDocument();
   });
 });

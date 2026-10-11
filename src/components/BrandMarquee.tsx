@@ -1,5 +1,5 @@
 const brands = [
-  ['UNiDAYS', 'unidays.com'], ['RAINS', 'rains.com'], ['Taco Bell', 'tacobell.co.uk'], ['Currys', 'currys.co.uk'], ['acer', 'acer.com'], ['Final Round AI', 'finalroundai.com'], ['Daiu Coventry', 'daiucoventry.com'], ['RYMAN', 'ryman.co.uk'], ['C4 ENERGY', 'c4energy.com'], ['Channel 4', 'channel4.com'], ['Newsweek', 'newsweek.com'], ['Make It Common', 'makeitcommon.com'],
+  ['UNiDAYS', 'unidays.com'], ['RAINS', 'rains.com'], ['Taco Bell', 'tacobell.co.uk'], ['Currys', 'currys.co.uk'], ['acer', 'acer.com'], ['Final Round AI', 'finalroundai.com'], ['DAIU Coventry', 'daiucoventry.com'], ['RYMAN', 'ryman.co.uk'], ['C4 ENERGY', 'c4energy.com'], ['Channel 4', 'channel4.com'], ['Newsweek', 'newsweek.com'], ['Make It Common', 'makeitcommon.com'],
 ] as const;
 
 function BrandMarks({ hidden = false }: { hidden?: boolean }) {
