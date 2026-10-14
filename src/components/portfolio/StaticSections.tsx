@@ -84,6 +84,6 @@ export function Audience({ statsUrl = import.meta.env.VITE_SOCIAL_STATS_URL, fet
 
 export function Footer({ onOpenPrivacy }: { onOpenPrivacy?: () => void }) {
   return (
-<footer><div className="wrap footer-inner"><span>© 2026 Dom · UK-based. Still figuring it out.</span><div className="socials">{onOpenPrivacy && <button className="footer-link" type="button" onClick={onOpenPrivacy}>Privacy choices</button>}<a href="https://www.tiktok.com/@domg.o" target="_blank" rel="noopener noreferrer">TikTok ↗</a><a href="https://www.instagram.com/domg.0/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="https://www.youtube.com/@domg.o" target="_blank" rel="noopener noreferrer">YouTube ↗</a><a href="https://www.snapchat.com/add/domg.o" target="_blank" rel="noopener noreferrer">Snapchat ↗</a></div></div></footer>
+<footer><div className="wrap footer-inner"><span>© 2026 Dom · UK-based. Still figuring it out.</span><div className="socials">{onOpenPrivacy && <button className="footer-link" type="button" onClick={onOpenPrivacy}>Privacy choices</button>}<a href="/privacy">Privacy policy</a><a href="/terms">Terms of use</a><a href="https://www.tiktok.com/@domg.o" target="_blank" rel="noopener noreferrer">TikTok ↗</a><a href="https://www.instagram.com/domg.0/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="https://www.youtube.com/@domg.o" target="_blank" rel="noopener noreferrer">YouTube ↗</a><a href="https://www.snapchat.com/add/domg.o" target="_blank" rel="noopener noreferrer">Snapchat ↗</a></div></div></footer>
   );
 }

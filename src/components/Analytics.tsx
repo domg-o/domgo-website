@@ -23,6 +23,12 @@ export default function Analytics({ enabled, measurementId = import.meta.env.VIT
   useEffect(() => {
     if (!enabled || !isValidMeasurementId(measurementId)) return;
 
+    const analyticsWindow = window as unknown as Record<string, unknown>;
+    const disableKey = `ga-disable-${measurementId}`;
+    // Google checks this flag before collecting events. Set it before loading
+    // the tag, and restore it during effect cleanup when consent is withdrawn.
+    analyticsWindow[disableKey] = false;
+
     const library = document.createElement('script');
     library.async = true;
     library.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
@@ -39,6 +45,7 @@ export default function Analytics({ enabled, measurementId = import.meta.env.VIT
 
     document.head.append(library);
     return () => {
+      analyticsWindow[disableKey] = true;
       document.querySelectorAll('script[data-analytics="domgo"]').forEach(element => element.remove());
       delete window.gtag;
       delete window.dataLayer;
