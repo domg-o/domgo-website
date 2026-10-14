@@ -873,8 +873,7 @@ footer{
 .legal-section p+p{margin-top:12px}
 .legal-section ul{margin:12px 0 0;padding-left:24px}
 .legal-section li+li{margin-top:7px}
-.legal-section a,.legal-note a{color:var(--blue);text-underline-offset:3px}
-.legal-note{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);color:var(--soft);font-size:13px;line-height:1.65}
+.legal-section a{color:var(--blue);text-underline-offset:3px}
 .legal-footer-inner{border:0;color:var(--soft);font-size:13px}
 .legal-footer nav{justify-content:flex-end}
 .legal-footer nav a[aria-current="page"]{color:var(--blue);font-weight:650}

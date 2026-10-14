@@ -61,9 +61,7 @@ export default function LegalPage({ page }: LegalPageProps) {
       <p className="mono eyebrow">Domg.o · {isPrivacy ? 'Your information' : 'The details'}</p>
       <h1>{title}</h1>
       <p className="legal-updated">Last updated: 14 October 2026</p>
-      <div className="legal-copy">{isPrivacy ? <PrivacyPolicy /> : <TermsOfUse />}
-        <p className="legal-note">© 2026 Dominic George-Oppong · <a href="/privacy" aria-current={isPrivacy ? 'page' : undefined}>Privacy Policy</a> · <a href="/terms" aria-current={!isPrivacy ? 'page' : undefined}>Terms of Use</a></p>
-      </div>
+      <div className="legal-copy">{isPrivacy ? <PrivacyPolicy /> : <TermsOfUse />}</div>
     </main>
     <LegalFooter page={page} />
   </>;
