@@ -1,0 +1,1 @@
+export default function Footer() { return <footer className="border-t-2 border-ink"><div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-3 px-5 py-6 font-mono text-xs tracking-wide text-ink-soft sm:px-8"><span>© 2026 Dom · @domg.o · UK</span><span>Open to talent representation</span></div></footer>; }

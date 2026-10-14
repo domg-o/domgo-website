@@ -1,0 +1,7 @@
+{
+  "tiktokAgeRange": [["18–24", 48.5], ["25–34", 37.4], ["35–44", 8.1], ["45+", 6]],
+  "instagramAgeRange": [["18–24", 55.9], ["25–34", 28.6], ["35–44", 6.8], ["45+", 6.4]],
+  "tiktokLocations": [["United Kingdom", 44.2], ["United States", 8.7], ["Canada", 2.3]],
+  "instagramLocations": [["United Kingdom", 48], ["United States", 11.3], ["Canada", 3.1]],
+  "updatedAt": null
+}

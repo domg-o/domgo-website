@@ -1,0 +1,56 @@
+import { useEffect } from 'react';
+
+type AnalyticsProps = {
+  enabled: boolean;
+  measurementId?: string;
+};
+
+export function isValidMeasurementId(measurementId: string | undefined): measurementId is string {
+  return Boolean(measurementId && /^G-[A-Z0-9]+$/i.test(measurementId));
+}
+
+declare global {
+  interface Window {
+    dataLayer?: unknown[][];
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
+/**
+ * Activates only after the visitor opts in and a valid GA measurement ID exists.
+ */
+export default function Analytics({ enabled, measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID }: AnalyticsProps) {
+  useEffect(() => {
+    if (!enabled || !isValidMeasurementId(measurementId)) return;
+
+    const analyticsWindow = window as unknown as Record<string, unknown>;
+    const disableKey = `ga-disable-${measurementId}`;
+    // Google checks this flag before collecting events. Set it before loading
+    // the tag, and restore it during effect cleanup when consent is withdrawn.
+    analyticsWindow[disableKey] = false;
+
+    const library = document.createElement('script');
+    library.async = true;
+    library.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+    library.dataset.analytics = 'domgo';
+
+    window.dataLayer = window.dataLayer ?? [];
+    window.gtag = (...args: unknown[]) => window.dataLayer?.push(args);
+    window.gtag('js', new Date());
+    window.gtag('config', measurementId, {
+      allow_ad_personalization_signals: false,
+      allow_google_signals: false,
+      anonymize_ip: true,
+    });
+
+    document.head.append(library);
+    return () => {
+      analyticsWindow[disableKey] = true;
+      document.querySelectorAll('script[data-analytics="domgo"]').forEach(element => element.remove());
+      delete window.gtag;
+      delete window.dataLayer;
+    };
+  }, [enabled, measurementId]);
+
+  return null;
+}
