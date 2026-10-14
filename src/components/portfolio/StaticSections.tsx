@@ -1,5 +1,6 @@
 // Sections from the approved photo-led portfolio design.
 import AudienceDetails from './AudienceDetails';
+import { formatFollowerCount, formatStatsDate, type SocialStatsFetcher, usePublicSocialStats } from '../../lib/socialStats';
 
 export function Hero() {
   return (
@@ -63,9 +64,21 @@ export function Services() {
   );
 }
 
-export function Audience() {
+type AudienceProps = {
+  statsUrl?: string;
+  fetchStats?: SocialStatsFetcher;
+};
+
+export function Audience({ statsUrl = import.meta.env.VITE_SOCIAL_STATS_URL, fetchStats }: AudienceProps) {
+  const liveStats = usePublicSocialStats(statsUrl, fetchStats);
+  const tiktokFollowers = liveStats?.tiktok ? formatFollowerCount(liveStats.tiktok.followers) : '82,187';
+  const instagramFollowers = liveStats?.instagram ? formatFollowerCount(liveStats.instagram.followers) : '21,788';
+  const statsLabel = liveStats
+    ? `Live follower figures · updated ${formatStatsDate(liveStats.updatedAt)}`
+    : 'Recorded audience figures';
+
   return (
-<section className="section" id="audience"><div className="wrap"><div className="audience-head"><div><span className="mono eyebrow">06 / The people in my corner</span><h2>Same group chat.<br />New chapter.</h2></div><p>People came for student life and stayed for the personality. Now we’re figuring out work, first salaries and everything that comes with them.</p></div><div className="audience-table"><div className="audience-row"><a className="platform" href="https://www.tiktok.com/@domg.o" target="_blank" rel="noopener noreferrer"><strong>TikTok ↗</strong><span>@domg.o</span></a><div className="data"><strong>82,187</strong><span className="mono">Followers</span></div><div className="data"><strong>20.3M</strong><span className="mono">Views · 60 days</span></div><div className="data"><strong>86.5%</strong><span className="mono">Aged 18–34</span></div></div><div className="audience-row"><a className="platform" href="https://www.instagram.com/domg.0/" target="_blank" rel="noopener noreferrer"><strong>Instagram ↗</strong><span>@domg.0</span></a><div className="data"><strong>21,788</strong><span className="mono">Followers</span></div><div className="data"><strong>6.1M</strong><span className="mono">Views · 30 days</span></div><div className="data"><strong>83.1%</strong><span className="mono">Aged 18–34</span></div></div></div><div className="audience-foot"><p>Recorded audience figures</p><a href="mailto:dom@domgo.co.uk?subject=Media%20kit%20request">Request the full media kit ↗</a></div><AudienceDetails /></div></section>
+<section className="section" id="audience"><div className="wrap"><div className="audience-head"><div><span className="mono eyebrow">06 / The people in my corner</span><h2>Same group chat.<br />New chapter.</h2></div><p>People came for student life and stayed for the personality. Now we’re figuring out work, first salaries and everything that comes with them.</p></div><div className="audience-table"><div className="audience-row"><a className="platform" href="https://www.tiktok.com/@domg.o" target="_blank" rel="noopener noreferrer"><strong>TikTok ↗</strong><span>@domg.o</span></a><div className="data"><strong>{tiktokFollowers}</strong><span className="mono">Followers</span></div><div className="data"><strong>20.3M</strong><span className="mono">Views · 60 days</span></div><div className="data"><strong>86.5%</strong><span className="mono">Aged 18–34</span></div></div><div className="audience-row"><a className="platform" href="https://www.instagram.com/domg.0/" target="_blank" rel="noopener noreferrer"><strong>Instagram ↗</strong><span>@domg.0</span></a><div className="data"><strong>{instagramFollowers}</strong><span className="mono">Followers</span></div><div className="data"><strong>6.1M</strong><span className="mono">Views · 30 days</span></div><div className="data"><strong>83.1%</strong><span className="mono">Aged 18–34</span></div></div></div><div className="audience-foot"><p>{statsLabel}</p><a href="mailto:dom@domgo.co.uk?subject=Media%20kit%20request">Request the full media kit ↗</a></div><AudienceDetails /></div></section>
   );
 }
 

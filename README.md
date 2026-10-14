@@ -19,6 +19,8 @@ Partner-asset sources are documented in `public/portfolio-assets/SOURCES.md`. Au
 
 The production build is deterministic and never calls social APIs. `npm run stats:update` is an optional editorial helper that writes an ignored snapshot for manual review; it does not update the published figures automatically.
 
+The audience section can optionally read a public, cached follower-count response from a separate service. Add `VITE_SOCIAL_STATS_URL` only after deploying the secure connection service in [`social-sync/README.md`](./social-sync/README.md). The browser receives only follower totals and an update timestamp; Instagram/TikTok secrets and authorisation tokens never enter the website build.
+
 ## Quality checks
 
 `npm run check` runs linting, behaviour and accessibility-focused component tests with coverage, the production build, and desktop/mobile Playwright journeys. GitHub Pages deployment runs the same command before publishing.
@@ -27,7 +29,7 @@ The production build is deterministic and never calls social APIs. `npm run stat
 
 The site supports optional aggregate Google Analytics 4 reporting. Analytics is disabled until a visitor explicitly allows it, and the choice can be changed from the footer. Add the web-stream measurement ID as `VITE_GA_MEASUREMENT_ID` in the deployment environment (or copy `.env.example` to `.env.local` for local testing), then rebuild and deploy.
 
-For GitHub Pages, create an Actions repository variable named `VITE_GA_MEASUREMENT_ID`. If it is absent or invalid, analytics and the privacy-choice prompt both remain disabled.
+For GitHub Pages, create an Actions repository variable named `VITE_GA_MEASUREMENT_ID`. If it is absent or invalid, analytics and the privacy-choice prompt both remain disabled. Once the social-sync service is deployed, add its read-only `VITE_SOCIAL_STATS_URL` in the same place.
 
 Google fonts are bundled with the application, so typography does not disclose a visitor IP address to a font CDN.
 

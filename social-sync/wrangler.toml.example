@@ -1,0 +1,27 @@
+name = "domgo-social-sync"
+main = "worker.mjs"
+compatibility_date = "2026-10-11"
+
+[triggers]
+crons = ["17 */6 * * *"]
+
+# Create these KV namespaces in the Cloudflare account, then replace the IDs.
+[[kv_namespaces]]
+binding = "OAUTH_STATE"
+id = "replace-with-oauth-state-namespace-id"
+
+[[kv_namespaces]]
+binding = "TOKENS"
+id = "replace-with-encrypted-token-namespace-id"
+
+[[kv_namespaces]]
+binding = "PUBLIC_STATS"
+id = "replace-with-public-stats-namespace-id"
+
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "replace-with-rate-limit-namespace-id"
+
+[vars]
+PUBLIC_SITE_ORIGIN = "https://domgo.co.uk"
+OAUTH_CALLBACK_ORIGIN = "https://replace-with-worker-domain.workers.dev"
