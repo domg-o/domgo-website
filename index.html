@@ -588,6 +588,13 @@
     .reveal{ opacity:1; transform:none; transition:none; }
     .btn, .card, .chip{ transition:none; }
   }
+
+  /* Footer legal buttons */
+  .foot-inner{ align-items:center; }
+  .foot-legal{ display:flex; flex-wrap:wrap; gap:10px; }
+  .foot-inner .foot-legal .btn{ padding:9px 16px; font-size:12px; color:var(--ink); background:transparent; }
+  .foot-inner .foot-legal .btn:hover,
+  .foot-inner .foot-legal .btn:focus-visible{ background:var(--ink); color:var(--paper); }
 </style>
 </head>
 <body>
@@ -1195,6 +1202,10 @@
 <footer>
   <div class="container foot-inner">
     <span>&copy; 2026 Dom · @domg.o · UK</span>
+    <nav class="foot-legal" aria-label="Legal">
+      <a class="btn btn-ghost" href="/privacy.html">Privacy Policy</a>
+      <a class="btn btn-ghost" href="/terms.html">Terms of Use</a>
+    </nav>
     <span>Open to talent representation</span>
   </div>
 </footer>
