@@ -845,6 +845,16 @@ footer{
 .socials a:hover{
   color:var(--blue)
 }
+.socials .social-link{
+  text-decoration-color:transparent;
+  text-underline-offset:4px;
+  transition:color .2s ease,text-decoration-color .2s ease
+}
+.socials .social-tiktok:hover,.socials .social-tiktok:focus-visible{color:#bd3650;text-decoration:underline}
+.socials .social-instagram:hover,.socials .social-instagram:focus-visible{color:#b42f75;text-decoration:underline}
+.socials .social-youtube:hover,.socials .social-youtube:focus-visible{color:#c4302b;text-decoration:underline}
+.socials .social-snapchat:hover{color:#826900}
+.socials .social-snapchat:focus-visible{color:var(--soft);text-decoration:underline}
 .footer-link{
   border:0;
   padding:0;

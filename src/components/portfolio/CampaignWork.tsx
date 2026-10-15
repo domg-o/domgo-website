@@ -51,7 +51,7 @@ export default function CampaignWork() {
             <strong className={`case-result${selected === 6 ? ' partnership-result' : ''}`}>{campaign.result}</strong>
             <span className="mono result-label">{campaign.label}</span>
             <p className="case-description">{campaign.description}</p>
-            <a className="case-link" href={campaign.link} target="_blank" rel="noopener noreferrer"><span>{campaign.action}</span><span className="arrow" aria-hidden="true">↗</span></a>
+            <a className="case-link" href={campaign.link} target="_blank" rel="noopener noreferrer"><span>{campaign.action}</span><span className="arrow" aria-hidden="true">↗︎</span></a>
           </div>
         </article>
         <div className="case-list" role="group" aria-label="Select a campaign">

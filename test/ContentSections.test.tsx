@@ -5,9 +5,24 @@ import Hobbies from '../src/components/portfolio/Hobbies';
 import Testimonials from '../src/components/portfolio/Testimonials';
 import YouTube from '../src/components/portfolio/YouTube';
 import AudienceDetails from '../src/components/portfolio/AudienceDetails';
+import { Footer } from '../src/components/portfolio/StaticSections';
 import { getHobbies, hobbyVideos } from '../src/components/portfolio/content';
 
 describe('Approved content sections', () => {
+  test('footer social links are arrow-free and have distinct brand hover styles', () => {
+    render(<Footer />);
+    for (const [name, className] of [
+      ['TikTok', 'social-tiktok'],
+      ['Instagram', 'social-instagram'],
+      ['YouTube', 'social-youtube'],
+      ['Snapchat', 'social-snapchat'],
+    ]) {
+      const link = screen.getByRole('link', { name });
+      expect(link).not.toHaveTextContent(/[↖↗↘↙↑↓←→⬆⬇⬅➡]/);
+      expect(link).toHaveClass('social-link', className);
+    }
+  });
+
   test('sorts only recorded view counts without inventing rankings or mutating data', () => {
     const original = [...hobbyVideos];
     const popular = getHobbies('popular');

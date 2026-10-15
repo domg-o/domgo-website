@@ -29,7 +29,7 @@ export default function Community() {
             </span>
           </h3>
           <ul className="mt-5 font-serif text-lg italic">
-            {era.items.map(item => <li key={item} className={`border-b border-dashed py-3 ${i ? 'border-paper/20' : 'border-ink/20'}`}>→ {item}</li>)}
+            {era.items.map(item => <li key={item} className={`border-b border-dashed py-3 ${i ? 'border-paper/20' : 'border-ink/20'}`}>→︎ {item}</li>)}
           </ul>
         </div>)}
       </div><p className="mt-6 border-2 border-ink border-l-8 border-l-biro bg-paper-bright p-6 text-lg leading-7">
